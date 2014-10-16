@@ -15,8 +15,10 @@ public class Rider {
 	/** The rider's number of license. */
 	private final String mLicense;
 	
+	private static int sLicense = 0;
+	
 	/**
-	 * Constructor with three paramaters.
+	 * Constructor with three parameters.
 	 * @param name The rider's name.
 	 * @param age The rider's age.
 	 * @param license The rider's number of license. Considered unique.
@@ -25,6 +27,12 @@ public class Rider {
 		mName = name;
 		mAge = age;
 		mLicense = license;
+	}
+	
+	public static Rider createRider() {
+		sLicense++;
+		return null;
+		// return new Rider()
 	}
 	
 	/**
@@ -41,6 +49,11 @@ public class Rider {
 	 */
 	public int getAge() {
 		return mAge;
+	}
+	
+	@Override
+	public int hashCode() {
+		return mLicense.hashCode();
 	}
 	
 	/**

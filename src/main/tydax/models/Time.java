@@ -56,6 +56,18 @@ public class Time implements Comparable<Time> {
 		mSeconds = mSeconds % 60;
 	}
 	
+	public int getHours() {
+		return mHours;
+	}
+	
+	public int getMinutes() {
+		return mMinutes;
+	}
+	
+	public int getSeconds() {
+		return mSeconds;
+	}
+	
 	@Override
 	public int compareTo(Time t) {
 		// If hours are different, compare them and return the result
