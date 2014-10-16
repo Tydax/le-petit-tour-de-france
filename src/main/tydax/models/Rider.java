@@ -1,5 +1,10 @@
 package main.tydax.models;
 
+import java.util.Random;
+
+import grumpy.cub.tydax.toolbox.tools.StringGenerator;
+import grumpy.cub.tydax.toolbox.tools.enums.Language;
+
 /**
  * This class models a rider in the Tour de France. (with his bike and stuff)
  * @author Armand BOUR
@@ -17,6 +22,8 @@ public class Rider {
 	
 	private static int sLicense = 0;
 	
+	private static final Random RAND = new Random();
+	
 	/**
 	 * Constructor with three parameters.
 	 * @param name The rider's name.
@@ -31,8 +38,11 @@ public class Rider {
 	
 	public static Rider createRider() {
 		sLicense++;
-		return null;
-		// return new Rider()
+		String licnum = Integer.toString(sLicense);
+		
+		return new Rider(StringGenerator.generateName(Language.FRENCH),
+					RAND.nextInt(60) + 20,
+					("LIC000" + licnum).substring(licnum.length()));
 	}
 	
 	/**
