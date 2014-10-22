@@ -61,7 +61,7 @@ public class Stage {
 	public void run(Rider ... riders) {
 		for(Rider r : riders) {
 			// Generate a random boolean to withdraw or not the rider
-			if(sRandom.nextInt(9) <= 7) {
+			if(sRandom.nextInt(30) != 0) {
 				mResults.put(r, new Result(new Time(sRandom.nextInt(2) + mTheoricalTime.getHours(),
 										 			sRandom.nextInt(60) + mTheoricalTime.getMinutes(),
 										 			sRandom.nextInt(60) + mTheoricalTime.getSeconds()),
@@ -69,6 +69,7 @@ public class Stage {
 										 sRandom.nextInt(20)));				
 			}
 			else {
+				mResults.put(r, new Result());
 				mWithdrawnRiders.add(r);
 			}
 		}
@@ -99,5 +100,13 @@ public class Stage {
 		}
 		
 		return mWithdrawnRiders;
+	}
+	
+	/**
+	 * Gets the id of the Stage in the TourDeFrance.
+	 * @return The id of the Stage.
+	 */
+	public int getId() {
+		return mId;
 	}
 }

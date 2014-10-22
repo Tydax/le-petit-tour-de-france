@@ -114,4 +114,10 @@ public class Time implements Comparable<Time> {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return String.valueOf(mHours) + "h" +
+			   String.valueOf(mMinutes) + "m" +
+			   String.valueOf(mSeconds) + "s";
+	}
 }

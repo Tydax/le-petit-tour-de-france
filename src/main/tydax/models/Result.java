@@ -18,6 +18,14 @@ public class Result {
 	private int mClimbingPts;
 	
 	/**
+	 * Default constructor. Initialise a Result with a Time using default constructor {@link Time#Time()}
+	 * and 0 to both scores.
+	 */
+	public Result() {
+		this(new Time(), 0, 0);
+	}
+	
+	/**
 	 * Constructor with three parameters.
 	 * @param time The time registered.
 	 * @param greenPoints The number of green points the rider scored during the race.

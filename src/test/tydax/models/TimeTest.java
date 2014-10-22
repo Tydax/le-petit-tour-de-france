@@ -21,6 +21,7 @@ public class TimeTest {
 	@Test(expected=InvalidParameterException.class)
 	public void testWithNegativeTime() {
 		Time time = new Time(-10, 2, 4);
+		time.compareTo(time);
 	}
 	
 	/** Tests the constructor when initialising with values over 60. */
