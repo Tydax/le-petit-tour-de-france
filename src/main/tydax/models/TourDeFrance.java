@@ -113,4 +113,44 @@ public class TourDeFrance {
 	public List<Stage> getStages() {
 		return mStages;
 	}
+	
+	/**
+	 * Gets the owner of the yellow jersey (best time) of this Tour de France.
+	 * @return The Rider who should own the yellow jersey.
+	 * @see Result#mTime
+	 */
+	public Rider yellowJersey() {
+		// TODO implement
+		return null;
+	}
+	
+	/**
+	 * Gets the owner of the green jersey (best score in green points) of this Tour de France.
+	 * @return The Rider who should own the green jersey.
+	 * @see Result#mGreenPoints
+	 */
+	public Rider greenJersey() {
+		// TODO implement
+		return null;
+	}
+	
+	/**
+	 * Gets the owner of the polka dot jersey (best time) of this Tour de France.
+	 * @return The Rider who should own the polka dot jersey.
+	 * @see Result#mClimbingPoints
+	 */	
+	public Rider polkaDotJersey() {
+		// TODO implement
+		return null;
+	}
+	
+	/**
+	 * Gets the youngest rider with the best time of this Tour de France.
+	 * @return The youngest Rider with the best time.
+	 * @see Rider#mAge
+	 */
+	public Rider youngRider() {
+		// TODO implement
+		return null;
+	}
 }
