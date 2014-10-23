@@ -46,6 +46,30 @@ public class TourDeFrance {
 	}
 	
 	/**
+	 * Create a randomly generated TourDeFrance using the static methods {@link Stage#createRandomStage()}
+	 * and {@link Rider#createRandomRider()}.
+	 * @param numberStages The number of stages to initialise in the Tour.
+	 * @param numberRiders The number of riders to initialise in the Tour.
+	 * @return A randomly generated TourDeFrance.
+	 */
+	
+	public static TourDeFrance createRandomTour(int numberStages, int numberRiders) {
+		// Initialise randomly generated stages
+		ArrayList<Stage> stages = new ArrayList<Stage>();
+		for(int i = 0 ; i < numberStages ; i++) {
+			stages.add(Stage.createRandomStage());
+		}
+		
+		// Initialise randomly generated riders
+		ArrayList<Rider> riders = new ArrayList<Rider>();
+		for(int i = 0 ; i < numberRiders ; i++) {
+			riders.add(Rider.createRandomRider());
+		}
+		
+		return new TourDeFrance(stages, riders);
+	}
+	
+	/**
 	 * Run the specified stage.
 	 * @param stage The stage to run.
 	 */

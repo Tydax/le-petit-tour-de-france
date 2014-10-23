@@ -6,7 +6,7 @@ import grumpy.cub.tydax.toolbox.tools.StringGenerator;
 import grumpy.cub.tydax.toolbox.tools.enums.Language;
 
 /**
- * This class models a rider in the Tour de France. (with his bike and stuff)
+ * This class models a rider in the Tour de France (with his bike and stuff).
  * @author Armand BOUR
  *
  */
@@ -36,7 +36,7 @@ public class Rider {
 		mLicense = license;
 	}
 	
-	public static Rider createRider() {
+	public static Rider createRandomRider() {
 		sLicense++;
 		String licnum = Integer.toString(sLicense);
 		

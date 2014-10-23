@@ -9,7 +9,7 @@ package main.tydax.models;
 public class Result {
 
 	/** The time registered. */
-	private Time mTime;
+	private MyTime mTime;
 	
 	/** The number of green points that the rider scored during the race. */
 	private int mGreenPts;
@@ -18,11 +18,11 @@ public class Result {
 	private int mClimbingPts;
 	
 	/**
-	 * Default constructor. Initialise a Result with a Time using default constructor {@link Time#Time()}
+	 * Default constructor. Initialise a Result with a Time using default constructor {@link MyTime#Time()}
 	 * and 0 to both scores.
 	 */
 	public Result() {
-		this(new Time(), 0, 0);
+		this(new MyTime(), 0, 0);
 	}
 	
 	/**
@@ -31,7 +31,7 @@ public class Result {
 	 * @param greenPoints The number of green points the rider scored during the race.
 	 * @param climbingPoints The number of climbing points the rider scored during the race.
 	 */
-	public Result(Time time, int greenPoints, int climbingPoints) {
+	public Result(MyTime time, int greenPoints, int climbingPoints) {
 		mTime = time;
 		mGreenPts = greenPoints;
 		mClimbingPts = climbingPoints;
@@ -42,7 +42,7 @@ public class Result {
 	 * @return The time registered.
 	 */
 	
-	public Time getTime() {
+	public MyTime getTime() {
 		return mTime;
 	}
 

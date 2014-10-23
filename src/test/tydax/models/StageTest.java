@@ -12,7 +12,7 @@ public class StageTest {
 	
 	@Before
 	public void initialiseField() {
-		mStage = Stage.createStage();
+		mStage = Stage.createRandomStage();
 	}
 	
 	@Test(expected=StageNotYetRunException.class)

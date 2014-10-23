@@ -7,7 +7,7 @@ import java.security.InvalidParameterException;
  * @author Armand BOUR
  *
  */
-public class Time implements Comparable<Time> {
+public class MyTime implements Comparable<MyTime> {
 
 	/** The number of seconds. Always positive. Cannot exceed 59. */
 	private int mSeconds;
@@ -19,7 +19,7 @@ public class Time implements Comparable<Time> {
 	private int mHours;
 	
 	/** Default constructor initialising a Time with 0 in each field. */
-	public Time() { 
+	public MyTime() { 
 		this(0,0,0);
 	}
 	
@@ -29,7 +29,7 @@ public class Time implements Comparable<Time> {
 	 * @param min The number of minutes. Can exceed 59, in which case this will be converted to hours.
 	 * @param sec The number of seconds. Can exceed 59, in which case this will be converted to minutes.
 	 */
-	public Time(int hours, int min, int sec) {
+	public MyTime(int hours, int min, int sec) {
 		if(hours < 0 || min < 0 || sec < 0) {
 			throw new InvalidParameterException("Cannot specify a negative Time");
 		}
@@ -44,7 +44,7 @@ public class Time implements Comparable<Time> {
 	 * @param t The Time to add.
 	 */
 	
-	public void addTime(Time t) {
+	public void addTime(MyTime t) {
 		// Summing
 		mSeconds += t.mSeconds;
 		mMinutes += t.mMinutes;
@@ -69,7 +69,7 @@ public class Time implements Comparable<Time> {
 	}
 	
 	@Override
-	public int compareTo(Time t) {
+	public int compareTo(MyTime t) {
 		// If hours are different, compare them and return the result
 		if(mHours != t.mHours) {
 			return mHours > t.mHours
@@ -102,9 +102,9 @@ public class Time implements Comparable<Time> {
 			return true;
 		if (obj == null)
 			return false;
-		if (!(obj instanceof Time))
+		if (!(obj instanceof MyTime))
 			return false;
-		Time other = (Time) obj;
+		MyTime other = (MyTime) obj;
 		if (mHours != other.mHours)
 			return false;
 		if (mMinutes != other.mMinutes)

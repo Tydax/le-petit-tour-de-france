@@ -25,7 +25,7 @@ public class Stage {
 	/** Boolean representing if the Stage has been run yet or not. */
 	private boolean mRun;
 	/** Theorical time needed to run the Stage. Used to compute a random Time. */
-	private Time mTheoricalTime;
+	private MyTime mTheoricalTime;
 	/** Map containing the results associated with the riders. */
 	private Map<Rider, Result> mResults;
 	/** Collection of withdrawn riders. */
@@ -35,7 +35,7 @@ public class Stage {
 	 * Default constructor. Creates a Stage with a unique id, a randomly generated time, and empty
 	 * collections for the results and the withdrawn riders.
 	 */
-	public Stage(int id, Time theoricalTime) {
+	public Stage(int id, MyTime theoricalTime) {
 		mId = id;
 		mRun = false;
 		mTheoricalTime = theoricalTime;
@@ -48,9 +48,9 @@ public class Stage {
 	 * collections for the results and the withdrawn riders.
 	 * @return a new random Stage.
 	 */
-	public static Stage createStage() {
+	public static Stage createRandomStage() {
 		sId++;
-		return new Stage(sId, new Time(sRandom.nextInt(10), sRandom.nextInt(60), sRandom.nextInt(60)));
+		return new Stage(sId, new MyTime(sRandom.nextInt(10), sRandom.nextInt(60), sRandom.nextInt(60)));
 	}
 	
 	/**
@@ -62,7 +62,7 @@ public class Stage {
 		for(Rider r : riders) {
 			// Generate a random boolean to withdraw or not the rider
 			if(sRandom.nextInt(30) != 0) {
-				mResults.put(r, new Result(new Time(sRandom.nextInt(2) + mTheoricalTime.getHours(),
+				mResults.put(r, new Result(new MyTime(sRandom.nextInt(2) + mTheoricalTime.getHours(),
 										 			sRandom.nextInt(60) + mTheoricalTime.getMinutes(),
 										 			sRandom.nextInt(60) + mTheoricalTime.getSeconds()),
 										 sRandom.nextInt(20),

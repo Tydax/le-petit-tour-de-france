@@ -11,20 +11,8 @@ import main.tydax.models.TourDeFrance;
 public class Main {
 
 	public static void main(String[] args) {
-		// Initialise randomly generated riders
-		ArrayList<Rider> riders = new ArrayList<Rider>();
-		for(int i = 0 ; i < 25 ; i++) {
-			riders.add(Rider.createRider());
-		}
-		
-		// Initialise randomly generated stages
-		ArrayList<Stage> stages = new ArrayList<Stage>();
-		for(int i = 0 ; i < 8 ; i++) {
-			stages.add(Stage.createStage());
-		}
-		
 		// Initialise Tour de France
-		TourDeFrance muchTour = new TourDeFrance(stages, riders);
+		TourDeFrance muchTour = TourDeFrance.createRandomTour(8, 25);
 		muchTour.runAll();
 		
 		System.out.println("** Results: **");
