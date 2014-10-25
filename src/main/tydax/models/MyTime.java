@@ -72,19 +72,19 @@ public class MyTime implements Comparable<MyTime> {
 	public int compareTo(MyTime t) {
 		// If hours are different, compare them and return the result
 		if(mHours != t.mHours) {
-			return mHours > t.mHours
+			return mHours < t.mHours
 				 ? 1
 				 : -1;
 		}
 		else { // if hours are equals, compare minutes
 			if(mMinutes != t.mMinutes) {
-				return mMinutes > t.mMinutes
+				return mMinutes < t.mMinutes
 					 ? 1
 					 : -1;
 			}
 			else { // if minutes are not comparable, compare seconds
 				if(mSeconds != t.mSeconds) {
-					return mSeconds > t.mSeconds
+					return mSeconds < t.mSeconds
 						 ? 1
 						 : -1;
 				}

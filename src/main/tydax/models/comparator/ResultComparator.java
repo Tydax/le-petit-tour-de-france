@@ -11,7 +11,7 @@ import main.tydax.models.Result;
  *
  */
 public abstract class ResultComparator<T extends Comparable<? super T>> implements Comparator<Result> {
-
+	
 	@Override
 	public int compare(Result r1, Result r2) {
 		return criterion(r1).compareTo(criterion(r2));

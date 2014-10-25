@@ -1,11 +1,9 @@
 package main.tydax;
 
-import java.util.ArrayList;
 import java.util.Map;
 
 import main.tydax.models.Result;
 import main.tydax.models.Rider;
-import main.tydax.models.Stage;
 import main.tydax.models.TourDeFrance;
 
 public class Main {
@@ -21,7 +19,7 @@ public class Main {
 		Map<Rider, Result> results = muchTour.getResults();
 		for(Rider r : results.keySet()) {
 			Result res = results.get(r);
-			System.out.println(r.getName() + ": " +  res.getTime() + ""
+			System.out.println(r + ": " +  res.getTime() + ""
 					+ "\n\tGreenPts: " + res.getGreenPoints()
 					+ " ClimbingPts: " + res.getClimbingPoints());
 		}
@@ -29,8 +27,15 @@ public class Main {
 		// Display withdrawals
 		System.out.println("\n** Withdrawals **");
 		for (Rider r : muchTour.getWithdrawals()) {
-			System.out.println(r.getName());
+			System.out.println(r);
 		}
+		
+		// Display jersey owners
+		System.out.println("\n** Jersey owners **");
+		System.out.println("Yellow jersey: " + muchTour.yellowJersey());
+		System.out.println("Green jersey: " + muchTour.greenJersey());
+		System.out.println("Polka dot jersey: " + muchTour.polkaDotJersey());
+		System.out.println("Best young rider: " + muchTour.youngRider());
 	}
 
 }

@@ -2,11 +2,16 @@ package main.tydax.models;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import main.tydax.models.comparator.ClimbingComparator;
+import main.tydax.models.comparator.GreenComparator;
+import main.tydax.models.comparator.ResultComparator;
+import main.tydax.models.comparator.TimeComparator;
 import main.tydax.models.exceptions.StageNotYetRunException;
 
 /**
@@ -138,14 +143,27 @@ public class TourDeFrance {
 		return mStages;
 	}
 	
+	private <T extends Comparable<? super T>> Rider getBestRiderOnCriterion(List<Rider> riders, ResultComparator<T> comp) {
+		// Gets the results associated with still running riders
+		ArrayList<Result> results = new ArrayList<Result>();
+		for (Rider rider : riders) {
+			results.add(mResults.get(rider));
+		}
+		
+		// Gets the best Result using the comparator
+		Result bestResult = Collections.max(results, comp);
+		
+		// Gets the index of bestResult in the list, and use this index to access the associated Rider.
+		return riders.get(results.indexOf(bestResult));
+	}
+	
 	/**
 	 * Gets the owner of the yellow jersey (best time) of this Tour de France.
 	 * @return The Rider who should own the yellow jersey.
 	 * @see Result#mTime
 	 */
 	public Rider yellowJersey() {
-		// TODO implement
-		return null;
+		return getBestRiderOnCriterion(mRunningRiders, new TimeComparator());
 	}
 	
 	/**
@@ -154,8 +172,7 @@ public class TourDeFrance {
 	 * @see Result#mGreenPoints
 	 */
 	public Rider greenJersey() {
-		// TODO implement
-		return null;
+		return getBestRiderOnCriterion(mRunningRiders, new GreenComparator());
 	}
 	
 	/**
@@ -164,8 +181,7 @@ public class TourDeFrance {
 	 * @see Result#mClimbingPoints
 	 */	
 	public Rider polkaDotJersey() {
-		// TODO implement
-		return null;
+		return getBestRiderOnCriterion(mRunningRiders, new ClimbingComparator());
 	}
 	
 	/**
@@ -174,7 +190,15 @@ public class TourDeFrance {
 	 * @see Rider#mAge
 	 */
 	public Rider youngRider() {
-		// TODO implement
-		return null;
+		// Select only young riders
+		ArrayList<Rider> riders = new ArrayList<Rider>();
+		
+		for (Rider rider : mRunningRiders) {
+			if(rider.getAge() <= 25) {
+				riders.add(rider);
+			}
+		}
+		
+		return getBestRiderOnCriterion(riders, new TimeComparator());
 	}
 }

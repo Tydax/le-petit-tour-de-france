@@ -38,11 +38,11 @@ public class Rider {
 	
 	public static Rider createRandomRider() {
 		sLicense++;
-		String licnum = Integer.toString(sLicense);
+		String licnum =  String.valueOf(sLicense);
 		
 		return new Rider(StringGenerator.generateName(Language.FRENCH),
 					RAND.nextInt(60) + 20,
-					("LIC000" + licnum).substring(licnum.length()));
+					"LIC" + ("000" + licnum).substring(licnum.length()));
 	}
 	
 	/**
@@ -72,5 +72,10 @@ public class Rider {
 	 */
 	public String getLicense() {
 		return mLicense;
+	}
+	
+	@Override
+	public String toString() {
+		return mName + "(" + mLicense + ", " + mAge + " ans)";
 	}
 }
