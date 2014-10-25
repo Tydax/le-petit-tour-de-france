@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.NoSuchElementException;
 
 import main.tydax.models.comparator.ClimbingComparator;
 import main.tydax.models.comparator.GreenComparator;
@@ -185,8 +186,9 @@ public class TourDeFrance {
 	}
 	
 	/**
-	 * Gets the youngest rider with the best time of this Tour de France.
-	 * @return The youngest Rider with the best time.
+	 * Gets the youngest rider (under 25) with the best time of this Tour de France.
+	 * @return The youngest Rider with the best time.<br>
+	 * 		<code>null</code> if there is no rider under 25.
 	 * @see Rider#mAge
 	 */
 	public Rider youngRider() {
@@ -198,7 +200,11 @@ public class TourDeFrance {
 				riders.add(rider);
 			}
 		}
-		
-		return getBestRiderOnCriterion(riders, new TimeComparator());
+		try {
+			return getBestRiderOnCriterion(riders, new TimeComparator());
+		}
+		catch(NoSuchElementException nseExc) {
+			return null;
+		}
 	}
 }

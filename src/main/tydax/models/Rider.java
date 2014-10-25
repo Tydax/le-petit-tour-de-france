@@ -41,7 +41,7 @@ public class Rider {
 		String licnum =  String.valueOf(sLicense);
 		
 		return new Rider(StringGenerator.generateName(Language.FRENCH),
-					RAND.nextInt(60) + 20,
+					RAND.nextInt(60) + 18,
 					"LIC" + ("000" + licnum).substring(licnum.length()));
 	}
 	
